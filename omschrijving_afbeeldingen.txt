@@ -1,7 +1,7 @@
 Ranking 5 people.webp 
-Hoogte= 1040
-Breedte= 280
+Breedte= 1040
+Hoogte= 280
 
 Ranking 5 people red stadium.webp
-Hoogte= 1000
-Breedte= 760
+Breedte= 1000
+Hoogte= 760
