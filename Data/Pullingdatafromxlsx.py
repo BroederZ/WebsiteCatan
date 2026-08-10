@@ -12,21 +12,20 @@ file = pd.read_excel(excel_path, sheet_name="Blad1", engine="openpyxl")
 #print("file:", file)
 
 # Get all columns (except index/names)
-data = file[["Max", "Enzo", "Antoine", "Ma", "Pa"]]
-#data["Datum"] = pd.to_datetime(data["Datum"])  # Convert 'Datum' to datetime
-print("data:", data)
+data = file[["Datum","Max", "Enzo", "Antoine", "Ma", "Pa"]]
+#data["Datum"] = pd.to_datetime(data["Datum"], format="%d-%m-%Y") #The right format for the date
+data = file.iloc[::-1].reset_index(drop=True) #Reverse the order of the dates to have the oldest first
+#print("data:", data)
 
 # Plot all cumulative scores
 plt.figure(figsize=(10, 6))
 for column in data.select_dtypes(include=['number']).columns:
-   plt.plot(data[column].cumsum(), label=column, marker='o')#Elke lijn een specifiek marker geven
+   plt.plot(data["Datum"], data[column].cumsum(), label=column, marker='o')#Elke lijn een specifiek marker geven
    #print(data[column].cumsum())
 plt.xlabel("Datum")#verander naar datum in het figuur zelf
 plt.ylabel("Totaal behaalde punten")
 plt.title("Catan Scores - Cumulative")
 plt.legend()
-
-#plt.grid(True)
 
 #save naar de Graphs map in de Data map
 save_path = Path(__file__).resolve().parent / "Graphs"
