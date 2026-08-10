@@ -1,0 +1,3 @@
+#Meest behaalde punten krijgt eerste plaats, daarna de 2e en 3e plaats. Bij gelijkspel wordt gekeken naar de datum waarop het spel gespeeld is. De speler die het spel eerder heeft gespeeld krijgt de hogere plaats.
+#1ste plek krijgt 5 punten, 2e krijgt 4punten, 3e krijgt 3 punten, 4e krijgt 2 punten en 5e krijgt 1 punt. De punten worden opgeteld en in een grafiek weergegeven.
+#geen deelname is geen punten
