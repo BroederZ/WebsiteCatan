@@ -5,10 +5,11 @@ import pandas as pd
 #import openpyxl
 
 #open path to the excel file
-excel_path = Path(__file__).resolve().with_name("Catan_ostuni.xlsx")
+excel_path = Path(__file__).resolve().with_name("CatanRawData.xlsx")
 #print("excel_path:", excel_path)
 #leest de hele file
-file = pd.read_excel(excel_path, sheet_name="Blad1", engine="openpyxl")
+file_original = pd.read_excel(excel_path, sheet_name="Blad1", engine="openpyxl")
+file = file_original.copy() # Create a copy of the original file to avoid modifying it directly
 #print("file:", file)
 
 # Get all columns (except index/names)
@@ -31,7 +32,7 @@ plt.legend()
 save_path = Path(__file__).resolve().parent / "Graphs"
 #print("save_path:", save_path) # for checking the path
 #save_path.mkdir(exist_ok=True) # To remove the error codes; it makes the map
-save_path = save_path / "catan_totalscores.png"
+save_path = save_path / "catan_totalscores_alles.png"
 plt.savefig(save_path, dpi=300, bbox_inches="tight")
 #plt.show() #FigureCanvassAgg is non-interactive dus word niet getoond.
-print("Plot saved as catan_totalscores.png in path:", save_path)
+print("Plot saved as catan_totalscores_alles.png in path:", save_path)
