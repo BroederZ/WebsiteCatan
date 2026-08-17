@@ -6,11 +6,11 @@ import openpyxl
 
 name_excelfile = "Catan_VerwerkteData_Alles.xlsx"
 #name_excelfile = "Catan_Ostuni.xlsx" #aanpassen door file
-name_graphfile = "Catan_TotaleScore_Ostuni.png" #aanpassen door file
+name_graphfile = "Catan_TotaleScore_Alles.png" #aanpassen door file
 
 #open path to the excel file
-excel_path = Path(__file__).resolve().with_name(name_excelfile)
-#print("excel_path:\n", excel_path)
+excel_path = Path(__file__).resolve().with_name(name_excelfile) #aanpassen naar volledige path
+print("excel_path:\n", excel_path)
 
 #Getting sheet names
 wb = openpyxl.load_workbook(excel_path)
@@ -27,7 +27,7 @@ file = file_original.copy()
 # Get all columns (except index/names)
 data = file[["Datum", "Max", "Enzo", "Antoine", "Ma", "Pa"]]
 data["Datum"] = pd.to_datetime(data["Datum"], format="%d-%m-%Y") #The right format for the date
-print(f"Datums:/n{data["Datum"]}")
+#print(f"Datum format:\n{data["Datum"][0]}")
 
 #Reverse the order of the data to have the oldest first
 d1 = data["Datum"][0]
@@ -37,8 +37,15 @@ if d1 < d2:
    data = file
 else:
    data = file.iloc[::-1].reset_index(drop=True)
-   print(f"omgekeerde data:\n{data}")
+   print(f"omgekeerde data:\n{data["Datum"][0:10]}")
 
+
+pd.set_option("display.max_rows", None)
+#x vervangen door 
+print(data[["Max", "Enzo"]])
+data[["Max", "Enzo"]] = data [["Max", "Enzo"]].replace("x", 0)
+print(data[["Max", "Enzo"]])
+pd.reset_option("display.max_rows")
 
 # Plot all cumulative scores
 plt.figure (figsize=(10, 6))
