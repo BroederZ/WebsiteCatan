@@ -1,0 +1,6 @@
+To do
+Iedereen een eigen kleur en marker
+Taart grafieken van wie bank is en begint
+Histogram van wie hoeveel punten scoort
+Kampioenspunten uitrekenen
+de figuur goed opslaan
