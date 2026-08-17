@@ -1,6 +1,7 @@
 To do
-Iedereen een eigen kleur en marker
-Taart grafieken van wie bank is en begint
-Histogram van wie hoeveel punten scoort
-Kampioenspunten uitrekenen
-de figuur goed opslaan
+Kampioenspunten de 0 niet laten meetellen in de puntentelling
+Kampioenspunten plotten in een grafiek
+Animatie maken van de Histogrammen en grafieken
+Histogram maken in een plot en geen subfiguren
+Opsplitsen naar elk jaar
+Edities plotten
